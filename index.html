@@ -6,71 +6,26 @@
     <title>小弟 ❤️ 小晗同学</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        .navbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 12px 0;
-        }
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: center; gap: 20px;
-            flex-wrap: wrap; padding: 0 10px;
-        }
-        .nav-item {
-            padding: 8px 16px; cursor: pointer;
-            border-radius: 20px; transition: all 0.3s;
-            font-size: 14px; color: #666;
-            background: transparent; border: 2px solid transparent;
-        }
-        .nav-item:hover, .nav-item.active {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: white; border-color: #ff9a9e;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,154,158,0.4);
-        }
+        body { font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); min-height: 100vh; overflow-x: hidden; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; padding: 12px 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0 10px; }
+        .nav-item { padding: 8px 16px; cursor: pointer; border-radius: 20px; transition: all 0.3s; font-size: 14px; color: #666; background: transparent; border: 2px solid transparent; }
+        .nav-item:hover, .nav-item.active { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; border-color: #ff9a9e; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,154,158,0.4); }
         .container { max-width: 1200px; margin: 0 auto; padding: 90px 20px 50px; }
         .page { display: none; animation: fadeIn 0.5s; }
         .page.active { display: block; }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* 首页 */
-        .hero {
-            text-align: center; padding: 60px 20px;
-            background: white; border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1); margin-bottom: 30px;
-        }
-        .hero h1 {
-            font-size: 42px;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
+        .hero { text-align: center; padding: 60px 20px; background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .hero h1 { font-size: 42px; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
         .hero .subtitle { font-size: 18px; color: #888; margin-bottom: 25px; }
         .hero .days-counter { font-size: 64px; font-weight: bold; color: #ff9a9e; margin: 25px 0; }
         .hero .days-label { font-size: 16px; color: #666; }
         .heart-float { animation: float 3s ease-in-out infinite; font-size: 50px; display: inline-block; }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
-
-        /* 同步按钮区 */
-        .sync-bar {
-            display: flex; justify-content: center; gap: 12px;
-            margin-top: 30px; flex-wrap: wrap;
-        }
-        .sync-btn {
-            padding: 10px 22px; border: none; border-radius: 22px;
-            cursor: pointer; font-size: 14px; transition: all 0.3s;
-            color: white; font-weight: 500;
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .sync-bar { display: flex; justify-content: center; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+        .sync-btn { padding: 10px 22px; border: none; border-radius: 22px; cursor: pointer; font-size: 14px; transition: all 0.3s; color: white; font-weight: 500; }
         .sync-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .sync-btn.export { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
         .sync-btn.import { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
@@ -78,46 +33,28 @@
 
         /* 时光轴 */
         .timeline-container { display: flex; gap: 25px; margin-top: 25px; }
-        .timeline-nav {
-            flex: 0 0 280px; background: white; border-radius: 20px;
-            padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-height: 550px; overflow-y: auto;
-        }
+        .timeline-nav { flex: 0 0 280px; background: white; border-radius: 20px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-height: 550px; overflow-y: auto; }
         .timeline-nav h3 { color: #ff9a9e; margin-bottom: 16px; font-size: 18px; }
-        .timeline-item {
-            padding: 13px; margin-bottom: 8px; border-radius: 10px;
-            cursor: pointer; transition: all 0.3s; border-left: 3px solid transparent;
-        }
+        .timeline-item { padding: 13px; margin-bottom: 8px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border-left: 3px solid transparent; }
         .timeline-item:hover, .timeline-item.active { background: #fff5f5; border-left-color: #ff9a9e; }
         .timeline-item .date { font-size: 13px; color: #999; margin-bottom: 4px; }
         .timeline-item .title { font-size: 15px; color: #333; font-weight: 500; }
-        .timeline-content {
-            flex: 1; background: white; border-radius: 20px;
-            padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        .timeline-content { flex: 1; background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .timeline-content h2 { color: #ff9a9e; margin-bottom: 12px; font-size: 24px; }
-        .location-tag {
-            display: inline-block; background: #fff5f5; color: #ff9a9e;
-            padding: 5px 15px; border-radius: 15px; font-size: 13px; margin-bottom: 16px;
-        }
-        .photo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 16px; }
+        .location-tag { display: inline-block; background: #fff5f5; color: #ff9a9e; padding: 5px 15px; border-radius: 15px; font-size: 13px; margin-bottom: 16px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
         .photo-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; cursor: pointer; transition: transform 0.3s; }
         .photo-grid img:hover { transform: scale(1.05); }
-        .upload-area {
-            border: 2px dashed #ff9a9e; border-radius: 12px;
-            padding: 45px 15px; text-align: center; color: #ff9a9e;
-            cursor: pointer; transition: all 0.3s; height: 180px;
-            display: flex; flex-direction: column; justify-content: center;
-        }
+        .upload-area { border: 2px dashed #ff9a9e; border-radius: 12px; padding: 45px 15px; text-align: center; color: #ff9a9e; cursor: pointer; transition: all 0.3s; height: 180px; display: flex; flex-direction: column; justify-content: center; }
         .upload-area:hover { background: #fff5f5; }
         .upload-area span { font-size: 36px; display: block; margin-bottom: 8px; }
 
         /* 相册 */
-        .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 16px; margin-top: 25px; }
+        .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 25px; }
         .album-item { position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s; }
         .album-item:hover { transform: translateY(-5px); }
         .album-item img { width: 100%; height: 220px; object-fit: cover; }
-        .album-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent,rgba(0,0,0,0.7)); color: white; padding: 16px; }
+        .album-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; padding: 16px; }
 
         /* 情书 */
         .letter-container { max-width: 760px; margin: 0 auto; background: white; border-radius: 20px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -126,21 +63,17 @@
         .letter-textarea:focus { border-color: #ff9a9e; }
 
         /* 按钮 */
-        .btn {
-            padding: 11px 26px; border: none; border-radius: 23px;
-            cursor: pointer; font-size: 15px; transition: all 0.3s;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: white; margin: 4px;
-        }
+        .btn { padding: 11px 26px; border: none; border-radius: 23px; cursor: pointer; font-size: 15px; transition: all 0.3s; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; margin: 4px; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,154,158,0.4); }
+        .btn-sm { padding: 7px 16px; font-size: 13px; margin: 3px; }
+        .btn-red { background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%); }
+        .btn-green { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .btn-blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
 
         /* 倒计时 */
         .countdown-box { text-align: center; padding: 50px 20px; background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
         .countdown-display { display: flex; justify-content: center; gap: 24px; margin: 35px 0; flex-wrap: wrap; }
-        .cd-item {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: white; padding: 25px; border-radius: 18px; min-width: 105px;
-        }
+        .cd-item { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; padding: 25px; border-radius: 18px; min-width: 105px; }
         .cd-item .num { font-size: 42px; font-weight: bold; }
         .cd-item .lbl { font-size: 14px; margin-top: 8px; }
 
@@ -148,16 +81,10 @@
         .wishlist-box { background: white; border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .wishlist-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
         .wishlist-input-row { display: flex; gap: 10px; margin-bottom: 22px; }
-        .wishlist-input-row input {
-            flex: 1; padding: 11px 18px; border: 2px solid #f0f0f0;
-            border-radius: 23px; font-size: 15px; outline: none; transition: border-color 0.3s;
-        }
+        .wishlist-input-row input { flex: 1; padding: 11px 18px; border: 2px solid #f0f0f0; border-radius: 23px; font-size: 15px; outline: none; transition: border-color 0.3s; }
         .wishlist-input-row input:focus { border-color: #ff9a9e; }
         .wishlist-items { list-style: none; }
-        .wl-item {
-            padding: 13px 18px; background: #f9f9f9; border-radius: 10px;
-            margin-bottom: 8px; display: flex; align-items: center; gap: 13px; transition: all 0.3s;
-        }
+        .wl-item { padding: 13px 18px; background: #f9f9f9; border-radius: 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 13px; transition: all 0.3s; }
         .wl-item:hover { background: #fff5f5; }
         .wl-item.done { opacity: 0.55; text-decoration: line-through; }
         .wl-item input[type="checkbox"] { width: 19px; height: 19px; cursor: pointer; accent-color: #ff9a9e; }
@@ -165,50 +92,73 @@
 
         /* 问答 */
         .quiz-box { background: white; border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .quiz-q { margin-bottom: 24px; padding: 18px; background: #f9f9f9; border-radius: 14px; }
-        .quiz-q h3 { color: #ff9a9e; margin-bottom: 12px; font-size: 17px; }
-        .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
-        .quiz-opt {
-            padding: 11px 18px; background: white; border: 2px solid #f0f0f0;
-            border-radius: 10px; cursor: pointer; transition: all 0.3s;
-        }
-        .quiz-opt:hover { border-color: #ff9a9e; background: #fff5f5; }
-        .quiz-opt.sel { background: #ff9a9e; color: white; border-color: #ff9a9e; }
-        .quiz-result {
-            text-align: center; padding: 35px;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: white; border-radius: 18px; margin-top: 24px;
-        }
+        .quiz-person-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 22px; }
+        .quiz-person-tab { padding: 10px 28px; border-radius: 22px; border: 2px solid #f0f0f0; background: white; cursor: pointer; font-size: 15px; font-weight: 600; transition: all 0.3s; }
+        .quiz-person-tab:hover { border-color: #ff9a9e; }
+        .quiz-person-tab.active-he { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-color: #667eea; }
+        .quiz-person-tab.active-she { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; border-color: #ff9a9e; }
+        .quiz-q { margin-bottom: 20px; padding: 18px; background: #f9f9f9; border-radius: 14px; }
+        .quiz-q h3 { color: #ff9a9e; margin-bottom: 10px; font-size: 16px; }
+        .quiz-answer-input { width: 100%; padding: 10px 14px; border: 2px solid #e8e8e8; border-radius: 10px; font-size: 14px; outline: none; transition: border-color 0.3s; font-family: inherit; resize: vertical; min-height: 40px; }
+        .quiz-answer-input:focus { border-color: #ff9a9e; }
+        .quiz-answer-input.he-focus:focus { border-color: #667eea; }
+        .quiz-answered-badge { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 10px; margin-left: 6px; }
+        .quiz-answered-badge.he-badge { background: #eef0ff; color: #667eea; }
+        .quiz-answered-badge.she-badge { background: #fff0f3; color: #ff9a9e; }
+        .quiz-result { text-align: center; padding: 35px; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; border-radius: 18px; margin-top: 24px; }
+        .quiz-progress { text-align: center; margin-bottom: 16px; font-size: 13px; color: #888; }
+        .quiz-compare-item { text-align: left; background: rgba(255,255,255,0.2); border-radius: 12px; padding: 14px; margin: 10px 0; }
+        .quiz-compare-item .q-label { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .quiz-compare-item .ans-row { display: flex; gap: 12px; font-size: 13px; flex-wrap: wrap; }
+        .quiz-compare-item .ans-he { background: rgba(102,126,234,0.3); padding: 4px 10px; border-radius: 8px; }
+        .quiz-compare-item .ans-she { background: rgba(255,255,255,0.4); padding: 4px 10px; border-radius: 8px; }
 
         /* 弹窗 */
         .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
         .modal.show { display: flex; }
-        .modal-inner { background: white; border-radius: 20px; padding: 35px; max-width: 480px; width: 90%; max-height: 80vh; overflow-y: auto; }
-        .modal-inner h2 { color: #ff9a9e; margin-bottom: 18px; }
-        .fg { margin-bottom: 17px; }
+        .modal-inner { background: white; border-radius: 20px; padding: 30px; max-width: 580px; width: 95%; max-height: 88vh; overflow-y: auto; }
+        .modal-inner.wide { max-width: 720px; }
+        .modal-inner h2 { color: #ff9a9e; margin-bottom: 18px; font-size: 22px; }
+        .fg { margin-bottom: 14px; }
         .fg label { display: block; margin-bottom: 7px; color: #666; font-weight: 500; font-size: 14px; }
-        .fg input, .fg textarea { width: 100%; padding: 11px; border: 2px solid #f0f0f0; border-radius: 10px; font-size: 15px; outline: none; transition: border-color 0.3s; }
-        .fg input:focus, .fg textarea:focus { border-color: #ff9a9e; }
+        .fg input, .fg textarea, .fg select { width: 100%; padding: 11px; border: 2px solid #f0f0f0; border-radius: 10px; font-size: 15px; outline: none; transition: border-color 0.3s; font-family: inherit; }
+        .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: #ff9a9e; }
 
         /* 音乐控制 */
-        .music-ctrl {
-            position: fixed; bottom: 25px; right: 25px;
-            background: white; border-radius: 50%; width: 56px; height: 56px;
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer;
-            z-index: 1000; font-size: 22px;
-        }
+        .music-ctrl { position: fixed; bottom: 25px; right: 25px; background: white; border-radius: 50%; width: 56px; height: 56px; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; z-index: 1000; font-size: 22px; }
         .music-ctrl:hover { transform: scale(1.1); }
 
-        /* Toast 提示 */
-        .toast {
-            position: fixed; top: 80px; left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: rgba(0,0,0,0.8); color: white; padding: 12px 28px;
-            border-radius: 25px; font-size: 14px; z-index: 3000;
-            opacity: 0; transition: all 0.3s; pointer-events: none;
-        }
+        /* Toast */
+        .toast { position: fixed; top: 80px; left: 50%; transform: translateX(-50%) translateY(-20px); background: rgba(0,0,0,0.8); color: white; padding: 12px 28px; border-radius: 25px; font-size: 14px; z-index: 3000; opacity: 0; transition: all 0.3s; pointer-events: none; }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* 通用 */
+        .page-title { color: #ff9a9e; margin-bottom: 16px; font-size: 28px; }
+        .page-desc { color: #666; margin-bottom: 24px; font-size: 15px; }
+        .quiz-count { font-size: 13px; color: #888; text-align: center; margin-bottom: 16px; }
+
+        /* 问答编辑器 */
+        .quiz-edit-bar { display: flex; justify-content: flex-end; margin-bottom: 18px; }
+        .quiz-edit-list { max-height: 380px; overflow-y: auto; }
+        .qe-item { padding: 14px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px; }
+        .qe-q { font-weight: 600; color: #333; margin-bottom: 6px; font-size: 15px; }
+        .qe-actions { display: flex; gap: 8px; margin-top: 8px; }
+        .qe-answer { font-size: 13px; color: #ff9a9e; font-weight: 600; }
+        .qe-item { border: 2px solid #f0f0f0; border-radius: 12px; padding: 14px; margin-bottom: 10px; transition: all 0.3s; }
+        .qe-item:hover { border-color: #ff9a9e; }
+        .qe-q { font-weight: 600; color: #333; margin-bottom: 8px; font-size: 15px; }
+        .qe-opts { color: #888; font-size: 13px; margin-bottom: 10px; }
+        .qe-answer { display: inline-block; background: #ff9a9e; color: white; padding: 3px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .qe-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .qe-actions .btn { padding: 6px 14px; font-size: 12px; margin: 0; }
+
+        /* 选项行 */
+        .opt-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .opt-row input[type="text"] { flex: 1; }
+        .opt-radio { width: 18px; height: 18px; cursor: pointer; accent-color: #ff9a9e; }
+        .opt-del-btn { background: #ff6b6b; color: white; border: none; padding: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+        .add-opt-btn { background: #f0f0f0; color: #666; border: none; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; width: 100%; }
+        .add-opt-btn:hover { background: #ff9a9e; color: white; }
 
         /* 响应式 */
         @media (max-width: 768px) {
@@ -222,40 +172,30 @@
             .countdown-display { gap: 16px; }
             .cd-item { min-width: 80px; padding: 18px; }
             .cd-item .num { font-size: 32px; }
-            .sync-bar { gap: 8px; }
-            .sync-btn { padding: 8px 16px; font-size: 13px; }
         }
-
-        /* 页面标题统一样式 */
-        .page-title { color: #ff9a9e; margin-bottom: 16px; font-size: 28px; }
-        .page-desc { color: #666; margin-bottom: 24px; font-size: 15px; }
     </style>
 </head>
 <body>
 
-<!-- 导航 -->
 <nav class="navbar">
     <div class="nav-container">
-        <div class="nav-item active" onclick="showPage('home')">🏠 首页</div>
-        <div class="nav-item" onclick="showPage('timeline')">📅 时光轴</div>
-        <div class="nav-item" onclick="showPage('album')">💕 相册</div>
-        <div class="nav-item" onclick="showPage('letters')">💌 情书</div>
-        <div class="nav-item" onclick="showPage('countdown')">⏱️ 倒计时</div>
-        <div class="nav-item" onclick="showPage('wishlist')">✅ 恋爱清单</div>
-        <div class="nav-item" onclick="showPage('quiz')">❓ 恋爱问答</div>
+        <div class="nav-item active" data-page="home">🏠 首页</div>
+        <div class="nav-item" data-page="timeline">📅 时光轴</div>
+        <div class="nav-item" data-page="album">💕 相册</div>
+        <div class="nav-item" data-page="letters">💌 情书</div>
+        <div class="nav-item" data-page="countdown">⏱️ 倒计时</div>
+        <div class="nav-item" data-page="wishlist">✅ 恋爱清单</div>
+        <div class="nav-item" data-page="quiz">❓ 恋爱问答</div>
     </div>
 </nav>
 
-<!-- 背景音乐 -->
-<div class="music-ctrl" onclick="toggleMusic()">🎵</div>
+<div class="music-ctrl" id="musicCtrl">🎵</div>
 <audio id="bgMusic" loop><source src="https://cdn.pixabay.com/audio/2024/11/04/audio_598adf8d44.mp3" type="audio/mpeg"></audio>
 
-<!-- Toast -->
 <div id="toast" class="toast"></div>
 
 <div class="container">
 
-    <!-- ======== 首页 ======== -->
     <div id="home" class="page active">
         <div class="hero">
             <div class="heart-float">💕</div>
@@ -263,65 +203,59 @@
             <p class="subtitle">把普通一天，安静地存成故事</p>
             <div class="days-counter" id="daysCounter">0</div>
             <p class="days-label">天相爱中... 从 2024.12.1 开始</p>
-
-            <!-- 数据同步工具栏 -->
             <div class="sync-bar">
-                <button class="sync-btn export" onclick="exportData()">📤 导出数据</button>
-                <label class="sync-btn import">📥 导入数据
-                    <input type="file" accept=".json" style="display:none" onchange="importData(event)">
-                </label>
-                <button class="sync-btn share" onclick="genShareLink()">🔗 分享链接</button>
+                <button class="sync-btn export" id="btnExport">📤 导出数据</button>
+                <label class="sync-btn import">📥 导入数据<input type="file" accept=".json" id="btnImport" style="display:none"></label>
+                <button class="sync-btn share" id="btnShare">🔗 分享链接</button>
             </div>
         </div>
     </div>
 
-    <!-- ======== 时光轴 ======== -->
     <div id="timeline" class="page">
         <div class="timeline-container">
             <div class="timeline-nav">
                 <h3>📅 我们的回忆</h3>
                 <div id="timelineList"></div>
-                <button class="btn" onclick="openModal('addMemoryModal')" style="margin-top:16px;width:100%">+ 添加新回忆</button>
+                <button class="btn" id="btnAddMemory" style="margin-top:16px;width:100%">+ 添加新回忆</button>
             </div>
             <div class="timeline-content">
                 <h2 id="memTitle">选择一个回忆</h2>
                 <span class="location-tag" id="memLoc">📍 地点</span>
                 <p id="memDesc" style="margin:18px 0;color:#666;line-height:1.8"></p>
                 <div class="photo-grid" id="memPhotos"></div>
-                <div class="upload-area" onclick="$('memPhotoInput').click()">
+                <label class="upload-area" style="margin-top:12px">
                     <span>📷</span><p>点击上传照片</p>
-                </div>
-                <input type="file" id="memPhotoInput" multiple accept="image/*" style="display:none" onchange="uploadMemPhotos(event)">
+                    <input type="file" id="memPhotoInput" multiple accept="image/*" style="display:none">
+                </label>
             </div>
         </div>
     </div>
 
-    <!-- ======== 相册 ======== -->
     <div id="album" class="page">
         <h2 class="page-title">💕 情侣相册</h2>
         <p class="page-desc">记录每一个美好瞬间</p>
         <div class="album-grid" id="albumGrid"></div>
-        <div class="upload-area" onclick="$('albPhotoInput').click()" style="margin-top:24px;height:auto;padding:32px">
+        <label class="upload-area" style="margin-top:24px;height:auto;padding:32px">
             <span>📷</span><p>点击添加照片到相册</p>
-        </div>
-        <input type="file" id="albPhotoInput" multiple accept="image/*" style="display:none" onchange="uploadAlbPhotos(event)">
+            <input type="file" id="albPhotoInput" multiple accept="image/*" style="display:none">
+        </label>
     </div>
 
-    <!-- ======== 情书 ======== -->
     <div id="letters" class="page">
         <div class="letter-container">
             <h2 class="page-title" style="margin-bottom:22px">💌 给小晗同学的一封信</h2>
             <div id="letterDisplay" class="letter-display"></div>
-            <div id="letterEditArea" style="display:none"><textarea class="letter-textarea" id="letterTA" placeholder="写下你想对TA说的话..."></textarea></div>
+            <div id="letterEditArea" style="display:none">
+                <textarea class="letter-textarea" id="letterTA" placeholder="写下你想对TA说的话..."></textarea>
+            </div>
             <div style="text-align:center;margin-top:18px">
-                <button class="btn" onclick="editLetter()" id="editLetterBtn">✏️ 编辑情书</button>
-                <button class="btn" onclick="saveLetter()" id="saveLetterBtn" style="display:none">💾 保存</button>
-                <button class="btn" onclick="cancelEditLetter()" id="cancelLetterBtn" style="display:none;background:#999">取消</button>
+                <button class="btn" id="btnEditLetter">✏️ 编辑情书</button>
+                <button class="btn" id="btnSaveLetter" style="display:none">💾 保存</button>
+                <button class="btn" id="btnCancelLetter" style="display:none;background:#999">取消</button>
             </div>
         </div>
     </div>
 
-    <!-- ======== 倒计时 ======== -->
     <div id="countdown" class="page">
         <div class="countdown-box">
             <h2 class="page-title">⏱️ 下一个纪念日</h2>
@@ -332,11 +266,10 @@
                 <div class="cd-item"><div class="num" id="cdM">0</div><div class="lbl">分</div></div>
                 <div class="cd-item"><div class="num" id="cdS">0</div><div class="lbl">秒</div></div>
             </div>
-            <button class="btn" onclick="openModal('cdModal')" style="margin-top:24px">⚙️ 设置纪念日</button>
+            <button class="btn" id="btnSetCountdown" style="margin-top:24px">⚙️ 设置纪念日</button>
         </div>
     </div>
 
-    <!-- ======== 恋爱清单 ======== -->
     <div id="wishlist" class="page">
         <div class="wishlist-box">
             <div class="wishlist-header">
@@ -344,362 +277,1009 @@
                 <span style="color:#999;font-size:14px" id="wlStats">0 / 0 完成</span>
             </div>
             <div class="wishlist-input-row">
-                <input type="text" id="wlInput" placeholder="添加想一起做的事情..." onkeypress="if(event.key==='Enter')addWlItem()">
-                <button class="btn" onclick="addWlItem()">添加</button>
+                <input type="text" id="wlInput" placeholder="添加想一起做的事情...">
+                <button class="btn" id="btnAddWl">添加</button>
             </div>
             <ul class="wishlist-items" id="wlList"></ul>
         </div>
     </div>
 
-    <!-- ======== 恋爱问答 ======== -->
     <div id="quiz" class="page">
         <div class="quiz-box">
-            <h2 class="page-title" style="margin-bottom:8px">❓ 恋爱问答</h2>
-            <p class="page-desc">测试一下你们对彼此的了解程度吧！</p>
+            <h2 class="page-title" style="margin-bottom:8px">❓ 100道恋爱问答</h2>
+            <p class="page-desc">我有100个问题想问你 💕 各自答题，看看默契度！</p>
+            <div class="quiz-person-tabs">
+                <div class="quiz-person-tab" id="tabHe" data-person="he">🧑 小弟</div>
+                <div class="quiz-person-tab" id="tabShe" data-person="she">👩 小晗同学</div>
+            </div>
+            <p class="quiz-progress" id="quizProgress"></p>
+            <p class="quiz-count" id="quizCount"></p>
             <div id="quizQs"></div>
             <div style="text-align:center;margin-top:24px">
-                <button class="btn" onclick="calcQuizResult()">查看结果</button>
+                <button class="btn btn-green btn-sm" id="btnQuizResult">🎯 查看默契度</button>
+                <button class="btn btn-blue btn-sm" id="btnQuizEditor">✏️ 编辑题目</button>
             </div>
             <div id="quizResult" class="quiz-result" style="display:none"></div>
         </div>
     </div>
 </div>
 
-<!-- 添加回忆弹窗 -->
-<div id="addMemoryModal" class="modal">
+<!-- 弹窗：添加回忆 -->
+<div id="modalAddMemory" class="modal">
     <div class="modal-inner">
         <h2>✨ 添加新回忆</h2>
         <div class="fg"><label>标题</label><input type="text" id="mTitleIn" placeholder="例如：第一次约会"></div>
         <div class="fg"><label>日期</label><input type="date" id="mDateIn"></div>
         <div class="fg"><label>地点</label><input type="text" id="mLocIn" placeholder="例如：万达广场"></div>
         <div class="fg"><label>描述</label><textarea id="mDescIn" rows="3" placeholder="记录这一天的美好..."></textarea></div>
-        <button class="btn" onclick="addMemory()">添加</button>
-        <button class="btn" onclick="closeModal('addMemoryModal')" style="background:#999">取消</button>
+        <button class="btn" id="btnConfirmAddMemory">添加</button>
+        <button class="btn" id="btnCancelAddMemory" style="background:#999">取消</button>
     </div>
 </div>
 
-<!-- 设置倒计时弹窗 -->
-<div id="cdModal" class="modal">
+<!-- 弹窗：设置倒计时 -->
+<div id="modalCd" class="modal">
     <div class="modal-inner">
         <h2>⚙️ 设置纪念日</h2>
         <div class="fg"><label>纪念日名称</label><input type="text" id="cdNameIn" placeholder="例如：100天纪念日" value="100天纪念日"></div>
         <div class="fg"><label>目标日期</label><input type="date" id="cdDateIn"></div>
-        <button class="btn" onclick="setCountdown()">设置</button>
-        <button class="btn" onclick="closeModal('cdModal')" style="background:#999">取消</button>
+        <button class="btn" id="btnConfirmCd">设置</button>
+        <button class="btn" id="btnCancelCd" style="background:#999">取消</button>
     </div>
 </div>
 
+<!-- 弹窗：问答编辑器 -->
+<div id="modalQuizEditor" class="modal">
+    <div class="modal-inner wide">
+        <h2>✏️ 编辑题目</h2>
+        <div class="quiz-edit-list" id="quizEditList"></div>
+        <div style="margin-top:18px;padding-top:18px;border-top:2px dashed #f0f0f0">
+            <h3 style="color:#ff9a9e;font-size:16px;margin-bottom:14px">➕ 添加新题目</h3>
+            <div class="fg"><label>题目内容</label><input type="text" id="qeNewQ" placeholder="例如：TA最喜欢吃什么？"></div>
+            <button class="btn btn-green" id="btnQeAddQuestion" style="width:100%">✅ 添加这道题</button>
+        </div>
+        <div style="margin-top:14px;padding-top:14px;border-top:2px dashed #f0f0f0">
+            <h3 style="color:#667eea;font-size:16px;margin-bottom:14px">📋 批量添加题目</h3>
+            <div class="fg"><label>每行一道题</label><textarea id="qeBatchInput" rows="6" placeholder="TA最喜欢吃什么？&#10;TA最讨厌什么？&#10;我们第一次约会去了哪里？"></textarea></div>
+            <button class="btn btn-green" id="btnQeBatchAdd" style="width:100%">✅ 批量添加</button>
+        </div>
+        <div style="text-align:center;margin-top:18px">
+            <button class="btn" id="btnCloseQuizEditor" style="background:#999">关闭编辑器</button>
+        </div>
+    </div>
+</div>
+
+<!-- 弹窗：编辑单题 -->
+<div id="modalQuizEditOne" class="modal">
+    <div class="modal-inner">
+        <h2>✏️ 编辑题目</h2>
+        <input type="hidden" id="qeEditIdx">
+        <div class="fg"><label>题目内容</label><input type="text" id="qeEditQ" placeholder="题目内容"></div>
+        <button class="btn btn-green" id="btnQeSaveEdit" style="width:100%;margin-top:14px">💾 保存修改</button>
+        <button class="btn" id="btnCancelQeEdit" style="background:#999;width:100%;margin-top:8px">取消</button>
+    </div>
+</div>
+
+<style>
+.qe-opt-input { flex:1; padding:8px; border:2px solid #f0f0f0; border-radius:8px; font-size:14px; font-family:inherit; }
+</style>
+
 <script>
-// ========== 工具函数 ==========
-function $(id){ return document.getElementById(id); }
-function toast(msg){
-    const t = $('toast'); t.textContent = msg; t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'),2200);
-}
+(function() {
+    'use strict';
 
-// ========== 数据管理 ==========
-const DEFAULT_DATA = {
-    startDate:'2024-12-01',
-    memories:[{
-        id:1,title:'我们在一起啦！',date:'2024-12-01',
-        location:'心动的开始',
-        desc:'这一天，我们正式在一起了，开启了属于我们的故事。',
-        photos:[]
-    }],
-    letters:'亲爱的小晗同学：\n\n从遇见你的那天起，我的世界变得更加美好。\n每一天都想和你一起度过，每一个瞬间都想和你一起分享。\n\n爱你的，\n小弟 ❤️',
-    wishlist:[
-        {id:1,text:'一起看一场浪漫电影',completed:false},
-        {id:2,text:'一起去海边看日出',completed:false},
-        {id:3,text:'一起做一顿爱心晚餐',completed:false}
-    ],
-    countdown:{name:'100天纪念日',date:'2025-03-11'},
-    albumPhotos:[],
-    quizAnswers:{}
-};
+    var $ = function(id) { return document.getElementById(id); };
+    var appData = null;
+    var curMemId = null;
+    var musicPlaying = false;
 
-let appData = null;
+    // ========== 默认数据 ==========
+    // ========== 默认数据 ==========
+    var DEFAULT_QUESTIONS = [
+        'TA最喜欢的食物是什么？',
+        'TA最讨厌的食物是什么？',
+        'TA最喜欢什么颜色？',
+        'TA最喜欢的季节是？',
+        'TA最喜欢的音乐类型？',
+        'TA最喜欢的电影类型？',
+        'TA最喜欢的明星是谁？',
+        'TA最喜欢的动漫是？',
+        'TA最喜欢的游戏是？',
+        'TA最喜欢的水果？',
+        'TA最讨厌的事情是？',
+        'TA最害怕的东西是？',
+        'TA最开心的时候是？',
+        'TA最生气的时候是？',
+        'TA最难过的时候是？',
+        'TA最想去的地方是？',
+        'TA最想养的宠物是？',
+        'TA最想收到的礼物？',
+        'TA最常用的口头禅是？',
+        'TA最尴尬的经历是？',
+        'TA睡觉的习惯是什么？',
+        'TA起床后的第一件事？',
+        'TA洗澡要多久？',
+        'TA晚上几点睡觉？',
+        'TA早上几点起床？',
+        'TA喜欢甜的还是咸的？',
+        'TA喜欢猫还是狗？',
+        'TA喜欢夏天还是冬天？',
+        'TA喜欢宅家还是出去玩？',
+        'TA喜欢什么类型的衣服？',
+        'TA的理想型是什么样的？',
+        'TA的梦想是什么？',
+        'TA的缺点是什么？',
+        'TA的优点是什么？',
+        'TA的爱好是什么？',
+        'TA的手机壳是什么颜色？',
+        'TA的微信头像是什么？',
+        'TA的鞋码是多少？',
+        'TA的身高是多少？',
+        'TA的生日是哪天？',
+        'TA的星座是什么？',
+        'TA的血型是什么？',
+        'TA是什么性格？',
+        'TA的MBTI是什么？',
+        'TA的初恋是什么时候？',
+        'TA的第一次心动是？',
+        'TA有几个好朋友？',
+        'TA和谁最亲？',
+        'TA最喜欢的饮料？',
+        'TA最喜欢的零食？',
+        'TA最喜欢的外卖？',
+        'TA最喜欢逛什么店？',
+        'TA花钱最多的是什么？',
+        'TA存钱的目的是什么？',
+        'TA对什么最执着？',
+        'TA对什么最无所谓？',
+        'TA最在意什么？',
+        'TA最不在意什么？',
+        'TA最近在追什么剧？',
+        'TA最近在听什么歌？',
+        'TA最近在看什么书？',
+        'TA最近在玩什么？',
+        '我们第一次见面是什么时候？',
+        '我们第一次约会去了哪里？',
+        '我们第一次牵手是什么时候？',
+        '我们第一次拥抱是什么时候？',
+        '我们第一次接吻是什么时候？',
+        '我们第一次吵架是因为什么？',
+        '我们第一次旅行去了哪里？',
+        '我们最开心的回忆是什么？',
+        '我们最难忘的一天是？',
+        '我们在一起多久了？',
+        '我送TA的第一个礼物是什么？',
+        'TA送我的第一个礼物是什么？',
+        '我最喜欢TA哪一点？',
+        'TA最喜欢我哪一点？',
+        '我想和TA去哪里旅行？',
+        '我想和TA一起做什么？',
+        '我最想对TA说什么？',
+        '我觉得TA最可爱的时候是？',
+        '我觉得TA最帅/最美的时候是？',
+        '我最怕TA什么？',
+        '我最想改掉TA什么习惯？',
+        'TA最想改掉我什么习惯？',
+        '我们以后想住什么样的房子？',
+        '我们以后想养什么宠物？',
+        '我们以后想去哪里定居？',
+        '我们以后想要几个孩子？',
+        '我最想和TA一起完成的事？',
+        '我们最近一次大笑是因为什么？',
+        '我们最近一次感动是因为什么？',
+        'TA最近一次哭是因为什么？',
+        '我最近一次为TA心动是？',
+        '如果我变成动物，TA觉得我是什么？',
+        '如果TA变成动物，我觉得TA是什么？',
+        '如果我们穿越到古代，TA想当什么？',
+        '如果我们有超能力，TA想有什么能力？',
+        '用三个词形容TA？',
+        'TA用哪三个词形容我？',
+        '我们的定情信物是什么？',
+        'TA最常说的一句话是？',
+        '我最想回到我们哪一天？',
+        '写下此刻最想对TA说的话'
+    ];
 
-function loadData(){
-    try{
-        // 尝试从URL参数恢复数据
-        const urlParams = new URLSearchParams(window.location.search);
-        const d = urlParams.get('d');
-        if(d){
-            const decoded = JSON.parse(decodeURIComponent(atob(d)));
-            saveData(decoded);
-            // 清除URL中的数据参数
-            window.history.replaceState({},'',window.location.pathname);
-            toast('🎉 已从分享链接恢复数据！');
-            return decoded;
-        }
-        const saved = localStorage.getItem('loversData');
-        if(saved){ return JSON.parse(saved); }
-    }catch(e){ console.error('加载数据失败',e); }
-    return null;
-}
-
-function saveData(data){
-    if(data) appData = data;
-    localStorage.setItem('loversData',JSON.stringify(appData));
-}
-
-function init(){
-    appData = loadData();
-    if(!appData){ appData = JSON.parse(JSON.stringify(DEFAULT_DATA)); saveData(); }
-    updateDaysCounter();
-    renderTimeline();
-    renderAlbum();
-    $('letterDisplay').innerHTML = appData.letters.replace(/\n/g,'<br>');
-    updateCountdown();
-    renderWishlist();
-    renderQuiz();
-    setInterval(updateCountdown,1000);
-    setInterval(updateDaysCounter,60000);
-
-    // 初始化倒计时输入框
-    if(appData.countdown && appData.countdown.date){
-        $('cdNameIn').value = appData.countdown.name || '';
-        $('cdDateIn').value = appData.countdown.date || '';
-    }
-}
-
-// ========== 页面切换 ==========
-function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    $(id).classList.add('active');
-    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-    // 高亮对应导航
-    const navMap = {'home':0,'timeline':1,'album':2,'letters':3,'countdown':4,'wishlist':5,'quiz':6};
-    if(navMap[id]!==undefined) document.querySelectorAll('.nav-item')[navMap[id]].classList.add('active');
-}
-
-// ========== 首页：天数 ==========
-function updateDaysCounter(){
-    const diff = Math.floor((Date.now() - new Date(appData.startDate).getTime()) / 86400000);
-    $('daysCounter').textContent = Math.max(0,diff);
-}
-
-// ========== 数据同步功能 ==========
-function exportData(){
-    // 创建一份不含大图base64的精简版用于导出（保留完整版）
-    const exportObj = JSON.parse(JSON.stringify(appData));
-    const blob = new Blob([JSON.stringify(exportObj,null,2)],{type:'application/json'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'love_data_' + new Date().toISOString().slice(0,10) + '.json';
-    a.click();
-    URL.revokeObjectURL(a.href);
-    toast('✅ 数据已导出！');
-}
-
-function importData(event){
-    const file = event.target.files[0];
-    if(!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e){
-        try{
-            const imported = JSON.parse(e.target.result);
-            // 验证基本结构
-            if(imported.memories && imported.wishlist){
-                saveData(imported);
-                init(); // 重新渲染所有页面
-                toast('🎉 数据导入成功！页面即将刷新...');
-                setTimeout(()=>location.reload(),1500);
-            }else{
-                toast('❌ 文件格式不正确');
-            }
-        }catch(err){
-            toast('❌ 文件解析失败');
-        }
+    var DEFAULT_DATA = {
+        startDate: '2024-12-01',
+        memories: [{
+            id: 1, title: '我们在一起啦！', date: '2024-12-01',
+            location: '心动的开始',
+            desc: '这一天，我们正式在一起了，开启了属于我们的故事。',
+            photos: []
+        }],
+        letters: '亲爱的小晗同学：\n\n从遇见你的那天起，我的世界变得更加美好。\n每一天都想和你一起度过，每一个瞬间都想和你一起分享。\n\n爱你的，\n小弟 ❤️',
+        wishlist: [
+            {id:1,text:'一起看一场浪漫电影',completed:false},
+            {id:2,text:'一起去海边看日出',completed:false},
+            {id:3,text:'一起做一顿爱心晚餐',completed:false}
+        ],
+        countdown: {name:'100天纪念日', date:'2025-03-11'},
+        albumPhotos: [],
+        quizHeAnswers: {},
+        quizSheAnswers: {},
+        quizQuestions: DEFAULT_QUESTIONS.slice()
     };
-    reader.readAsText(file);
-    event.target.value = ''; // 重置以便重复导入同一文件
-}
 
-function genShareLink(){
-    try{
-        // 创建精简版数据（去掉照片base64以缩短URL）
-        const shareData = JSON.parse(JSON.stringify(appData));
-        // 移除照片数据（太大了）
-        shareData.albumPhotos = [];
-        shareData.memories.forEach(m => m.photos = []);
-        const json = btoa(encodeURIComponent(JSON.stringify(shareData)));
-        const url = window.location.origin + window.location.pathname + '?d=' + json;
-
-        // 复制到剪贴板
-        if(navigator.clipboard){
-            navigator.clipboard.writeText(url).then(()=>{
-                toast('🔗 分享链接已复制到剪贴板！（注意：链接不含照片）');
-            }).catch(copyFallback);
-        } else {
-            copyFallback();
-        }
-
-        function copyFallback(){
-            const ta = document.createElement('textarea');
-            ta.value = url; ta.style.position='fixed'; ta.style.opacity='0';
-            document.body.appendChild(ta); ta.select();
-            document.execCommand('copy'); document.body.removeChild(ta);
-            toast('🔗 分享链接已复制到剪贴板！（注意：链接不含照片）');
-        }
-    } catch(e){
-        toast('❌ 生成失败，数据可能太大');
+    // ========== 工具 ==========
+    function toast(msg) {
+        var t = $('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(function() { t.classList.remove('show'); }, 2200);
     }
-}
 
-// ========== 时光轴 ==========
-let curMemId = null;
-function renderTimeline(){
-    const list = $('timelineList'); list.innerHTML='';
-    appData.memories.forEach(m=>{
-        const d = document.createElement('div');
-        d.className='timeline-item'; d.onclick=function(){selectMem(m.id);this.classList.add('active')};
-        d.innerHTML='<div class="date">'+m.date+'</div><div class="title">'+m.title+'</div>';
-        list.appendChild(d);
-    });
-    if(appData.memories.length>0 && !curMemId){ selectMem(appData.memories[0].id); }
-}
-function selectMem(id){
-    curMemId=id;
-    const m = appData.memories.find(x=>x.id===id); if(!m)return;
-    $('memTitle').textContent=m.title;
-    $('memLoc').textContent='📍 '+m.location;
-    $('memDesc').textContent=m.desc;
-    const g=$('memPhotos'); g.innerHTML='';
-    if(m.photos&&m.photos.length>0) m.photos.forEach(p=>{ const i=document.createElement('img');i.src=p;i.alt='回忆';g.appendChild(i); });
-    document.querySelectorAll('.timeline-item').forEach(t=>t.classList.remove('active'));
-    const items=document.querySelectorAll('.timeline-item');
-    const idx=appData.memories.findIndex(x=>x.id===id);
-    if(idx>=0&&items[idx]) items[idx].classList.add('active');
-}
-function addMemory(){
-    const title=$('mTitleIn').value,date=$('mDateIn').value,loc=$('mLocIn').value,desc=$('mDescIn').value;
-    if(!title||!date){toast('请填写标题和日期！');return;}
-    appData.memories.push({id:Date.now(),title,date,location:loc||'未设置',desc:desc||'',photos:[]});
-    appData.memories.sort((a,b)=>new Date(a.date)-new Date(b.date));
-    saveData();renderTimeline();closeModal('addMemoryModal');
-    $('mTitleIn').value='';$('mDateIn').value='';$('mLocIn').value='';$('mDescIn').value='';
-    toast('✅ 回忆已添加！');
-}
-function uploadMemPhotos(ev){
-    const files=ev.target.files;if(!curMemId||!files.length)return;
-    const m=appData.memories.find(x=>x.id===curMemId);if(!m)return;
-    Array.from(files).forEach(f=>{
-        const r=new FileReader();r.onload=function(e){m.photos.push(e.target.result);saveData();selectMem(curMemId);};r.readAsDataURL(f);
-    });
-    ev.target.value='';
-    toast('✅ 照片已上传！');
-}
+    function saveData() {
+        localStorage.setItem('loversData', JSON.stringify(appData));
+    }
 
-// ========== 相册 ==========
-function renderAlbum(){
-    const g=$('albumGrid');g.innerHTML='';
-    if(!appData.albumPhotos||appData.albumPhotos.length===0){g.innerHTML='<p style="text-align:center;color:#999;grid-column:1/-1;padding:40px">还没有照片，快来上传吧！</p>';return;}
-    appData.albumPhotos.forEach((p,idx)=>{
-        const d=document.createElement('div');d.className='album-item';
-        d.innerHTML='<img src="'+p+'" alt="相册"><div class="overlay"><button onclick="delAlbPhoto('+idx+')" style="background:rgba(255,107,107,0.8);color:white;border:none;padding:5px 14px;border-radius:14px;cursor:pointer;font-size:13px">删除</button></div>';
-        g.appendChild(d);
-    });
-}
-function uploadAlbPhotos(ev){
-    const files=ev.target.files;if(!files.length)return;
-    Array.from(files).forEach(f=>{
-        const r=new FileReader();r.onload=function(e){if(!appData.albumPhotos)appData.albumPhotos=[];appData.albumPhotos.push(e.target.result);saveData();renderAlbum();};r.readAsDataURL(f);
-    });
-    ev.target.value='';
-    toast('✅ 照片已添加到相册！');
-}
-function delAlbPhoto(idx){if(confirm('确定删除？')){appData.albumPhotos.splice(idx,1);saveData();renderAlbum();}}
-
-// ========== 情书 ==========
-function editLetter(){$('letterDisplay').style.display='none';$('letterEditArea').style.display='block';$('letterTA').value=appData.letters;$('saveLetterBtn').style.display='inline-block';$('cancelLetterBtn').style.display='inline-block';$('editLetterBtn').style.display='none';}
-function saveLetter(){appData.letters=$('letterTA').value;saveData();$('letterDisplay').innerHTML=appData.letters.replace(/\n/g,'<br>');cancelEditLetter();toast('✅ 情书已保存！');}
-function cancelEditLetter(){$('letterDisplay').style.display='block';$('letterEditArea').style.display='none';$('saveLetterBtn').style.display='none';$('cancelLetterBtn').style.display='none';$('editLetterBtn').style.display='inline-block';}
-
-// ========== 倒计时 ==========
-function updateCountdown(){
-    if(!appData.countdown||!appData.countdown.date)return;
-    const target=new Date(appData.countdown.date),now=new Date(),diff=target-now;
-    if(diff<=0){$('cdD').textContent='0';$('cdH').textContent='0';$('cdM').textContent='0';$('cdS').textContent='0';return;}
-    $('cdD').textContent=Math.floor(diff/86400000);
-    $('cdH').textContent=Math.floor((diff%86400000)/3600000);
-    $('cdM').textContent=Math.floor((diff%3600000)/60000);
-    $('cdS').textContent=Math.floor((diff%60000)/1000);
-}
-function setCountdown(){
-    const n=$('cdNameIn').value,d=$('cdDateIn').value;
-    if(!n||!d){toast('请填写完整！');return;}
-    appData.countdown={name:n,date:d};saveData();updateCountdown();closeModal('cdModal');
-    $('countdownDesc').textContent='距离'+n+'还有...';
-    toast('✅ 纪念日已设置！');
-}
-
-// ========== 恋爱清单 ==========
-function renderWishlist(){
-    const l=$('wlList');l.innerHTML='';
-    appData.wishlist.forEach(it=>{
-        const li=document.createElement('li');li.className='wl-item'+(it.completed?' done':'');
-        li.innerHTML='<input type="checkbox" '+(it.checked?'checked':'')+' onchange="toggleWl('+it.id+')"><span>'+it.text+'</span><button class="wl-del" onclick="delWl('+it.id+')">删除</button>';
-        l.appendChild(li);
-    });
-    updateWlStats();
-}
-function addWlItem(){const v=$('wlInput').value.trim();if(!v)return;appData.wishlist.push({id:Date.now(),text:v,completed:false});$('wlInput').value='';saveData();renderWishlist();}
-function toggleWl(id){const it=appData.wishlist.find(x=>x.id===id);if(it){it.completed=!it.completed;saveData();renderWishlist();}}
-function delWl(id){appData.wishlist=appData.wishlist.filter(x=>x.id!==id);saveData();renderWishlist();}
-function updateWlStats(){const t=appData.wishlist.length,c=appData.wishlist.filter(x=>x.completed).length;$('wlStats').textContent=c+'/'+t+' 完成';}
-
-// ========== 恋爱问答 ==========
-const quizQs=[
-    {q:'TA最喜欢的食物是什么？',opts:['火锅','披萨','寿司','烤肉']},
-    {q:'TA的生日是哪天？',opts:['1月','3月','5月','7月']},
-    {q:'TA最喜欢的颜色是？',opts:['蓝色','粉色','白色','黑色']},
-    {q:'TA最想去的地方是？',opts:['巴黎','东京','马尔代夫','冰岛']},
-    {q:'TA最喜欢的电影类型是？',opts:['爱情','科幻','喜剧','悬疑']}
-];
-function renderQuiz(){
-    const c=$('quizQs');c.innerHTML='';
-    quizQs.forEach((qi,i)=>{
-        const d=document.createElement('div');d.className='quiz-q';
-        d.innerHTML='<h3>问题'+(i+1)+': '+qi.q+'</h3><div class="quiz-opts">'+qi.opts.map((o,j)=>'<div class="quiz-opt" onclick="selQuizOpt('+i+','+j+',this)">'+o+'</div>').join('')+'</div>';
-        c.appendChild(d);
-    });
-    // 恢复之前的选择
-    Object.keys(appData.quizAnswers||{}).forEach(k=>{
-        const idx=parseInt(k);
-        if(!isNaN(idx)&&quizQs[idx]){
-            const opts=d.querySelectorAll('.quiz-q')[idx].querySelectorAll('.quiz-opt');
-            if(opts[appData.quizAnswers[k]]) opts[appData.quizAnswers[k]].classList.add('sel');
+    function loadData() {
+        try {
+            var urlParams = new URLSearchParams(window.location.search);
+            var d = urlParams.get('d');
+            if (d) {
+                var decoded = JSON.parse(decodeURIComponent(atob(d)));
+                if (!decoded.quizQuestions || decoded.quizQuestions === null) {
+                    decoded.quizQuestions = DEFAULT_QUESTIONS.slice();
+                }
+                if (decoded.quizQuestions.length > 0 && typeof decoded.quizQuestions[0] === 'object') {
+                    decoded.quizQuestions = decoded.quizQuestions.map(function(item) {
+                        return item.q || String(item);
+                    });
+                }
+                if (!decoded.quizHeAnswers) decoded.quizHeAnswers = {};
+                if (!decoded.quizSheAnswers) decoded.quizSheAnswers = {};
+                saveData(decoded);
+                window.history.replaceState({}, '', window.location.pathname);
+                toast('🎉 已从分享链接恢复数据！');
+                return decoded;
+            }
+            var saved = localStorage.getItem('loversData');
+            if (saved) {
+                var parsed = JSON.parse(saved);
+                if (!parsed.quizQuestions || parsed.quizQuestions === null) {
+                    parsed.quizQuestions = DEFAULT_QUESTIONS.slice();
+                }
+                // Migrate old format quizQuestions (array of objects with q/opts/correct) to plain strings
+                if (parsed.quizQuestions.length > 0 && typeof parsed.quizQuestions[0] === 'object') {
+                    parsed.quizQuestions = parsed.quizQuestions.map(function(item) {
+                        return item.q || String(item);
+                    });
+                }
+                if (!parsed.quizHeAnswers) parsed.quizHeAnswers = {};
+                if (!parsed.quizSheAnswers) parsed.quizSheAnswers = {};
+                // Migrate old quizAnswers format
+                if (parsed.quizAnswers && !Object.keys(parsed.quizHeAnswers).length && !Object.keys(parsed.quizSheAnswers).length) {
+                    // Old format had single quizAnswers with option indices - can't meaningfully migrate, just clear
+                    delete parsed.quizAnswers;
+                }
+                return parsed;
+            }
+        } catch (e) {
+            console.error('加载数据失败', e);
         }
+        return null;
+    }
+
+    // ========== 初始化 ==========
+    function init() {
+        appData = loadData();
+        if (!appData) {
+            appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+            saveData();
+        }
+
+        updateDaysCounter();
+        renderTimeline();
+        renderAlbum();
+        updateLetter();
+        updateCountdown();
+        renderWishlist();
+        renderQuiz();
+        bindEvents();
+
+        setInterval(updateCountdown, 1000);
+        setInterval(updateDaysCounter, 60000);
+
+        if (appData.countdown && appData.countdown.date) {
+            $('cdNameIn').value = appData.countdown.name || '';
+            $('cdDateIn').value = appData.countdown.date || '';
+        }
+    }
+
+    // ========== 事件绑定 ==========
+    function bindEvents() {
+        // 导航
+        document.querySelectorAll('.nav-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var page = this.getAttribute('data-page');
+                showPage(page);
+            });
+        });
+
+        // 首页
+        $('btnExport').addEventListener('click', exportData);
+        $('btnImport').addEventListener('change', importData);
+        $('btnShare').addEventListener('click', genShareLink);
+
+        // 时光轴
+        $('btnAddMemory').addEventListener('click', function() { openModal('modalAddMemory'); });
+        $('btnConfirmAddMemory').addEventListener('click', addMemory);
+        $('btnCancelAddMemory').addEventListener('click', function() { closeModal('modalAddMemory'); });
+        $('memPhotoInput').addEventListener('change', uploadMemPhotos);
+
+        // 相册
+        $('albPhotoInput').addEventListener('change', uploadAlbPhotos);
+
+        // 情书
+        $('btnEditLetter').addEventListener('click', editLetter);
+        $('btnSaveLetter').addEventListener('click', saveLetter);
+        $('btnCancelLetter').addEventListener('click', cancelEditLetter);
+
+        // 倒计时
+        $('btnSetCountdown').addEventListener('click', function() { openModal('modalCd'); });
+        $('btnConfirmCd').addEventListener('click', setCountdown);
+        $('btnCancelCd').addEventListener('click', function() { closeModal('modalCd'); });
+
+        // 清单
+        $('btnAddWl').addEventListener('click', addWlItem);
+        $('wlInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') addWlItem(); });
+
+        // 问答
+        $('tabHe').addEventListener('click', function() { switchQuizPerson('he'); });
+        $('tabShe').addEventListener('click', function() { switchQuizPerson('she'); });
+        $('btnQuizResult').addEventListener('click', calcQuizResult);
+        $('btnQuizEditor').addEventListener('click', function() { renderQuizEditorList(); openModal('modalQuizEditor'); });
+        $('btnCloseQuizEditor').addEventListener('click', function() { closeModal('modalQuizEditor'); });
+        $('btnQeAddQuestion').addEventListener('click', qeAddQuestion);
+        $('btnQeBatchAdd').addEventListener('click', qeBatchAdd);
+
+        // 编辑单题弹窗
+        $('btnQeSaveEdit').addEventListener('click', qeSaveEdit);
+        $('btnCancelQeEdit').addEventListener('click', function() { closeModal('modalQuizEditOne'); });
+
+        // 音乐
+        $('musicCtrl').addEventListener('click', toggleMusic);
+    }
+
+    // ========== 页面切换 ==========
+    function showPage(id) {
+        var pages = document.querySelectorAll('.page');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        var target = $(id);
+        if (target) {
+            target.classList.add('active');
+        } else {
+            console.error('页面不存在:', id);
+            return;
+        }
+
+        var navItems = document.querySelectorAll('.nav-item');
+        for (var j = 0; j < navItems.length; j++) {
+            navItems[j].classList.remove('active');
+        }
+        var navMap = {home:0, timeline:1, album:2, letters:3, countdown:4, wishlist:5, quiz:6};
+        var idx = navMap[id];
+        if (idx !== undefined && navItems[idx]) {
+            navItems[idx].classList.add('active');
+        }
+    }
+
+    // ========== 首页 ==========
+    function updateDaysCounter() {
+        var diff = Math.floor((Date.now() - new Date(appData.startDate)) / 86400000);
+        $('daysCounter').textContent = Math.max(0, diff);
+    }
+
+    // ========== 数据同步 ==========
+    function exportData() {
+        var blob = new Blob([JSON.stringify(appData, null, 2)], {type: 'application/json'});
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'love_data_' + new Date().toISOString().slice(0,10) + '.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        toast('✅ 数据已导出！');
+    }
+
+    function importData(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+            try {
+                var imported = JSON.parse(ev.target.result);
+                if (imported.memories && imported.wishlist) {
+                    if (!imported.quizQuestions || imported.quizQuestions === null) {
+                        imported.quizQuestions = DEFAULT_QUESTIONS.slice();
+                    }
+                    // Migrate old format
+                    if (imported.quizQuestions.length > 0 && typeof imported.quizQuestions[0] === 'object') {
+                        imported.quizQuestions = imported.quizQuestions.map(function(item) {
+                            return item.q || String(item);
+                        });
+                    }
+                    if (!imported.quizHeAnswers) imported.quizHeAnswers = {};
+                    if (!imported.quizSheAnswers) imported.quizSheAnswers = {};
+                    appData = imported;
+                    saveData();
+                    init();
+                    toast('🎉 数据导入成功！页面即将刷新...');
+                    setTimeout(function() { location.reload(); }, 1500);
+                } else {
+                    toast('❌ 文件格式不正确');
+                }
+            } catch (err) {
+                toast('❌ 文件解析失败');
+            }
+        };
+        reader.readAsText(file);
+        e.target.value = '';
+    }
+
+    function genShareLink() {
+        try {
+            var shareData = JSON.parse(JSON.stringify(appData));
+            shareData.albumPhotos = [];
+            shareData.memories.forEach(function(m) { m.photos = []; });
+            var json = btoa(encodeURIComponent(JSON.stringify(shareData)));
+            var url = window.location.origin + window.location.pathname + '?d=' + json;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(function() {
+                    toast('🔗 分享链接已复制！');
+                }).catch(function() { copyFallback(url); });
+            } else {
+                copyFallback(url);
+            }
+        } catch (ex) {
+            toast('❌ 生成失败，数据可能太大');
+        }
+    }
+
+    function copyFallback(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        toast('🔗 分享链接已复制！');
+    }
+
+    // ========== 时光轴 ==========
+    function renderTimeline() {
+        var list = $('timelineList');
+        list.innerHTML = '';
+        if (!appData.memories || appData.memories.length === 0) {
+            list.innerHTML = '<p style="color:#999;text-align:center;padding:20px">还没有回忆，添加一个吧！</p>';
+            return;
+        }
+        appData.memories.forEach(function(m, idx) {
+            var d = document.createElement('div');
+            d.className = 'timeline-item';
+            d.innerHTML = '<div class="date">' + m.date + '</div><div class="title">' + m.title + '</div>';
+            d.addEventListener('click', (function(memId) {
+                return function() { selectMem(memId); };
+            })(m.id));
+            list.appendChild(d);
+        });
+        if (!curMemId && appData.memories.length > 0) {
+            selectMem(appData.memories[0].id);
+        }
+    }
+
+    function selectMem(id) {
+        curMemId = id;
+        var m = null;
+        for (var i = 0; i < appData.memories.length; i++) {
+            if (appData.memories[i].id === id) { m = appData.memories[i]; break; }
+        }
+        if (!m) return;
+        $('memTitle').textContent = m.title;
+        $('memLoc').textContent = '📍 ' + m.location;
+        $('memDesc').textContent = m.desc;
+        var g = $('memPhotos');
+        g.innerHTML = '';
+        if (m.photos && m.photos.length > 0) {
+            m.photos.forEach(function(p) {
+                var img = document.createElement('img');
+                img.src = p;
+                img.alt = '回忆';
+                g.appendChild(img);
+            });
+        }
+
+        var items = document.querySelectorAll('.timeline-item');
+        for (var j = 0; j < items.length; j++) {
+            items[j].classList.remove('active');
+        }
+        for (var k = 0; k < appData.memories.length; k++) {
+            if (appData.memories[k].id === id) {
+                if (items[k]) items[k].classList.add('active');
+                break;
+            }
+        }
+    }
+
+    function addMemory() {
+        var title = $('mTitleIn').value.trim();
+        var date = $('mDateIn').value.trim();
+        var loc = $('mLocIn').value.trim();
+        var desc = $('mDescIn').value.trim();
+        if (!title || !date) { toast('请填写标题和日期！'); return; }
+        if (!appData.memories) appData.memories = [];
+        appData.memories.push({id: Date.now(), title: title, date: date, location: loc || '未设置', desc: desc || '', photos: []});
+        appData.memories.sort(function(a, b) { return new Date(a.date) - new Date(b.date); });
+        saveData();
+        renderTimeline();
+        closeModal('modalAddMemory');
+        $('mTitleIn').value = '';
+        $('mDateIn').value = '';
+        $('mLocIn').value = '';
+        $('mDescIn').value = '';
+        toast('✅ 回忆已添加！');
+    }
+
+    function uploadMemPhotos(e) {
+        var files = e.target.files;
+        if (!curMemId || !files || files.length === 0) return;
+        var mem = null;
+        for (var i = 0; i < appData.memories.length; i++) {
+            if (appData.memories[i].id === curMemId) { mem = appData.memories[i]; break; }
+        }
+        if (!mem) return;
+        Array.from(files).forEach(function(file) {
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                if (!mem.photos) mem.photos = [];
+                mem.photos.push(ev.target.result);
+                saveData();
+                selectMem(curMemId);
+            };
+            reader.readAsDataURL(file);
+        });
+        e.target.value = '';
+        toast('✅ 照片已上传！');
+    }
+
+    // ========== 相册 ==========
+    function renderAlbum() {
+        var g = $('albumGrid');
+        g.innerHTML = '';
+        var photos = appData.albumPhotos;
+        if (!photos || photos.length === 0) {
+            g.innerHTML = '<p style="text-align:center;color:#999;grid-column:1/-1;padding:40px">还没有照片，快来上传吧！</p>';
+            return;
+        }
+        photos.forEach(function(p, idx) {
+            var item = document.createElement('div');
+            item.className = 'album-item';
+            item.innerHTML = '<img src="' + p + '" alt="相册"><div class="overlay"><button class="alb-del-btn">删除</button></div>';
+            item.querySelector('.alb-del-btn').addEventListener('click', (function(index) {
+                return function() { delAlbPhoto(index); };
+            })(idx));
+            g.appendChild(item);
+        });
+    }
+
+    function uploadAlbPhotos(e) {
+        var files = e.target.files;
+        if (!files || files.length === 0) return;
+        if (!appData.albumPhotos) appData.albumPhotos = [];
+        Array.from(files).forEach(function(file) {
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                appData.albumPhotos.push(ev.target.result);
+                saveData();
+                renderAlbum();
+            };
+            reader.readAsDataURL(file);
+        });
+        e.target.value = '';
+        toast('✅ 照片已添加到相册！');
+    }
+
+    function delAlbPhoto(idx) {
+        if (!confirm('确定删除？')) return;
+        appData.albumPhotos.splice(idx, 1);
+        saveData();
+        renderAlbum();
+    }
+
+    // ========== 情书 ==========
+    function updateLetter() {
+        $('letterDisplay').innerHTML = appData.letters.replace(/\n/g, '<br>');
+    }
+
+    function editLetter() {
+        $('letterDisplay').style.display = 'none';
+        $('letterEditArea').style.display = 'block';
+        $('letterTA').value = appData.letters;
+        $('btnSaveLetter').style.display = 'inline-block';
+        $('btnCancelLetter').style.display = 'inline-block';
+        $('btnEditLetter').style.display = 'none';
+    }
+
+    function saveLetter() {
+        appData.letters = $('letterTA').value;
+        saveData();
+        updateLetter();
+        cancelEditLetter();
+        toast('✅ 情书已保存！');
+    }
+
+    function cancelEditLetter() {
+        $('letterDisplay').style.display = 'block';
+        $('letterEditArea').style.display = 'none';
+        $('btnSaveLetter').style.display = 'none';
+        $('btnCancelLetter').style.display = 'none';
+        $('btnEditLetter').style.display = 'inline-block';
+    }
+
+    // ========== 倒计时 ==========
+    function updateCountdown() {
+        if (!appData.countdown || !appData.countdown.date) return;
+        var target = new Date(appData.countdown.date);
+        var now = new Date();
+        var diff = target - now;
+        if (diff <= 0) {
+            $('cdD').textContent = '0';
+            $('cdH').textContent = '0';
+            $('cdM').textContent = '0';
+            $('cdS').textContent = '0';
+            return;
+        }
+        $('cdD').textContent = Math.floor(diff / 86400000);
+        $('cdH').textContent = Math.floor((diff % 86400000) / 3600000);
+        $('cdM').textContent = Math.floor((diff % 3600000) / 60000);
+        $('cdS').textContent = Math.floor((diff % 60000) / 1000);
+    }
+
+    function setCountdown() {
+        var n = $('cdNameIn').value.trim();
+        var d = $('cdDateIn').value.trim();
+        if (!n || !d) { toast('请填写完整！'); return; }
+        appData.countdown = {name: n, date: d};
+        saveData();
+        updateCountdown();
+        closeModal('modalCd');
+        $('countdownDesc').textContent = '距离 ' + n + ' 还有...';
+        toast('✅ 纪念日已设置！');
+    }
+
+    // ========== 清单 ==========
+    function renderWishlist() {
+        var l = $('wlList');
+        l.innerHTML = '';
+        if (!appData.wishlist) appData.wishlist = [];
+        appData.wishlist.forEach(function(it) {
+            var li = document.createElement('li');
+            li.className = 'wl-item' + (it.completed ? ' done' : '');
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.checked = it.completed;
+            cb.addEventListener('change', (function(itemId) {
+                return function() { toggleWl(itemId); };
+            })(it.id));
+            var span = document.createElement('span');
+            span.textContent = it.text;
+            var btn = document.createElement('button');
+            btn.className = 'wl-del';
+            btn.textContent = '删除';
+            btn.addEventListener('click', (function(itemId) {
+                return function() { delWl(itemId); };
+            })(it.id));
+            li.appendChild(cb);
+            li.appendChild(span);
+            li.appendChild(btn);
+            l.appendChild(li);
+        });
+        updateWlStats();
+    }
+
+    function addWlItem() {
+        var v = $('wlInput').value.trim();
+        if (!v) return;
+        if (!appData.wishlist) appData.wishlist = [];
+        appData.wishlist.push({id: Date.now(), text: v, completed: false});
+        $('wlInput').value = '';
+        saveData();
+        renderWishlist();
+    }
+
+    function toggleWl(id) {
+        for (var i = 0; i < appData.wishlist.length; i++) {
+            if (appData.wishlist[i].id === id) {
+                appData.wishlist[i].completed = !appData.wishlist[i].completed;
+                break;
+            }
+        }
+        saveData();
+        renderWishlist();
+    }
+
+    function delWl(id) {
+        appData.wishlist = appData.wishlist.filter(function(x) { return x.id !== id; });
+        saveData();
+        renderWishlist();
+    }
+
+    function updateWlStats() {
+        if (!appData.wishlist) appData.wishlist = [];
+        var total = appData.wishlist.length;
+        var completed = appData.wishlist.filter(function(x) { return x.completed; }).length;
+        $('wlStats').textContent = completed + ' / ' + total + ' 完成';
+    }
+
+    // ========== 问答 ==========
+    var quizCurrentPerson = 'he'; // 'he' or 'she'
+
+    function renderQuiz() {
+        var c = $('quizQs');
+        c.innerHTML = '';
+        var questions = appData.quizQuestions || [];
+        var heAns = appData.quizHeAnswers || {};
+        var sheAns = appData.quizSheAnswers || {};
+        var heCount = Object.keys(heAns).filter(function(k) { return heAns[k] && heAns[k].trim(); }).length;
+        var sheCount = Object.keys(sheAns).filter(function(k) { return sheAns[k] && sheAns[k].trim(); }).length;
+        $('quizCount').textContent = '共 ' + questions.length + ' 道题';
+        $('quizProgress').textContent = '🧑 小弟已答 ' + heCount + ' 题  |  👩 小晗同学已答 ' + sheCount + ' 题';
+        updatePersonTabs();
+
+        questions.forEach(function(q, i) {
+            var d = document.createElement('div');
+            d.className = 'quiz-q';
+            var ansKey = quizCurrentPerson;
+            var answers = ansKey === 'he' ? heAns : sheAns;
+            var currentVal = answers[i] || '';
+            var inputClass = quizCurrentPerson === 'he' ? 'quiz-answer-input he-focus' : 'quiz-answer-input';
+            var placeholder = quizCurrentPerson === 'he' ? '小弟的答案...' : '小晗同学的答案...';
+            
+            var heBadge = heAns[i] && heAns[i].trim() ? '<span class="quiz-answered-badge he-badge">🧑已答</span>' : '';
+            var sheBadge = sheAns[i] && sheAns[i].trim() ? '<span class="quiz-answered-badge she-badge">👩已答</span>' : '';
+            
+            d.innerHTML = '<h3>第' + (i+1) + '题：' + q + ' ' + heBadge + sheBadge + '</h3>' +
+                '<textarea class="' + inputClass + '" data-qi="' + i + '" placeholder="' + placeholder + '">' + currentVal + '</textarea>';
+            c.appendChild(d);
+        });
+
+        c.querySelectorAll('.quiz-answer-input').forEach(function(ta) {
+            ta.addEventListener('input', function() {
+                var qi = this.getAttribute('data-qi');
+                var val = this.value.trim();
+                if (quizCurrentPerson === 'he') {
+                    if (!appData.quizHeAnswers) appData.quizHeAnswers = {};
+                    appData.quizHeAnswers[qi] = val;
+                } else {
+                    if (!appData.quizSheAnswers) appData.quizSheAnswers = {};
+                    appData.quizSheAnswers[qi] = val;
+                }
+                saveData();
+                // Update badges without full re-render
+                var qEl = this.closest('.quiz-q');
+                var h3 = qEl.querySelector('h3');
+                var heBadge = quizCurrentPerson === 'he' && val ? '<span class="quiz-answered-badge he-badge">🧑已答</span>' : (appData.quizHeAnswers && appData.quizHeAnswers[qi] && appData.quizHeAnswers[qi].trim() ? '<span class="quiz-answered-badge he-badge">🧑已答</span>' : '');
+                var sheBadge = quizCurrentPerson === 'she' && val ? '<span class="quiz-answered-badge she-badge">👩已答</span>' : (appData.quizSheAnswers && appData.quizSheAnswers[qi] && appData.quizSheAnswers[qi].trim() ? '<span class="quiz-answered-badge she-badge">👩已答</span>' : '');
+                // Rebuild h3
+                var num = parseInt(qi) + 1;
+                h3.innerHTML = '第' + num + '题：' + (appData.quizQuestions[qi]) + ' ' + heBadge + sheBadge;
+            });
+        });
+    }
+
+    function updatePersonTabs() {
+        var tabHe = $('tabHe');
+        var tabShe = $('tabShe');
+        tabHe.className = 'quiz-person-tab' + (quizCurrentPerson === 'he' ? ' active-he' : '');
+        tabShe.className = 'quiz-person-tab' + (quizCurrentPerson === 'she' ? ' active-she' : '');
+    }
+
+    function switchQuizPerson(person) {
+        quizCurrentPerson = person;
+        renderQuiz();
+    }
+
+    function calcQuizResult() {
+        var questions = appData.quizQuestions || [];
+        var heAns = appData.quizHeAnswers || {};
+        var sheAns = appData.quizSheAnswers || {};
+        var total = questions.length;
+        
+        var bothAnswered = 0;
+        var similar = 0;
+        var compareHtml = '';
+        
+        for (var i = 0; i < total; i++) {
+            var he = (heAns[i] || '').trim();
+            var she = (sheAns[i] || '').trim();
+            if (he && she) {
+                bothAnswered++;
+                // Simple similarity: normalize and compare
+                var heNorm = he.toLowerCase().replace(/\s+/g, '');
+                var sheNorm = she.toLowerCase().replace(/\s+/g, '');
+                var isMatch = (heNorm === sheNorm) || (heNorm.indexOf(sheNorm) >= 0) || (sheNorm.indexOf(heNorm) >= 0);
+                if (isMatch) similar++;
+                compareHtml += '<div class="quiz-compare-item">' +
+                    '<div class="q-label">第' + (i+1) + '题：' + questions[i] + (isMatch ? ' 💕' : '') + '</div>' +
+                    '<div class="ans-row"><span class="ans-he">🧑 小弟：' + he + '</span><span class="ans-she">👩 小晗：' + she + '</span></div>' +
+                    '</div>';
+            }
+        }
+        
+        var r = $('quizResult');
+        r.style.display = 'block';
+        
+        if (bothAnswered === 0) {
+            r.innerHTML = '<h2>🤔 还没有人答题哦！</h2><p style="font-size:17px">两个人都答题后才能看默契度～</p>';
+            return;
+        }
+        
+        var pct = Math.round(similar / bothAnswered * 100);
+        var emoji = pct >= 80 ? '💕' : pct >= 60 ? '💗' : pct >= 40 ? '💝' : '🤗';
+        var msg = pct >= 80 ? '太默契了！你们是最配的！💕' : pct >= 60 ? '很懂彼此呢！继续加油！💗' : pct >= 40 ? '还有很多可以互相了解的～💝' : '多聊聊会更懂彼此哦！🤗';
+        
+        r.innerHTML = '<h2>🎉 默契度测试结果</h2>' +
+            '<p style="font-size:48px;margin:16px 0">' + emoji + pct + '%</p>' +
+            '<p style="font-size:17px">' + bothAnswered + ' 题双方都已答，' + similar + ' 题答案相似</p>' +
+            '<p style="font-size:17px;margin-bottom:16px">' + msg + '</p>' +
+            '<div style="max-height:300px;overflow-y:auto;text-align:left">' + compareHtml + '</div>';
+    }
+
+    // ========== 问答编辑器 ==========
+    function renderQuizEditorList() {
+        var list = $('quizEditList');
+        list.innerHTML = '';
+        var questions = appData.quizQuestions || [];
+        if (questions.length === 0) {
+            list.innerHTML = '<p style="text-align:center;color:#999;padding:30px">还没有题目，添加一道吧！</p>';
+            return;
+        }
+        questions.forEach(function(q, i) {
+            var d = document.createElement('div');
+            d.className = 'qe-item';
+            d.innerHTML =
+                '<div class="qe-q">第' + (i+1) + '题：' + q + '</div>' +
+                '<div class="qe-actions">' +
+                    '<button class="btn btn-blue btn-qe-edit" data-idx="' + i + '">编辑</button>' +
+                    '<button class="btn btn-red btn-qe-del" data-idx="' + i + '">删除</button>' +
+                '</div>';
+            list.appendChild(d);
+        });
+
+        list.querySelectorAll('.btn-qe-edit').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                qeOpenEdit(parseInt(this.getAttribute('data-idx')));
+            });
+        });
+        list.querySelectorAll('.btn-qe-del').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                qeDelQuestion(parseInt(this.getAttribute('data-idx')));
+            });
+        });
+    }
+
+    function qeOpenEdit(idx) {
+        var questions = appData.quizQuestions || [];
+        if (!questions[idx]) { toast('题目不存在！'); return; }
+        $('qeEditIdx').value = idx;
+        $('qeEditQ').value = questions[idx];
+        openModal('modalQuizEditOne');
+    }
+
+    function qeSaveEdit() {
+        var idx = parseInt($('qeEditIdx').value);
+        var q = $('qeEditQ').value.trim();
+        if (!q) { toast('请填写题目内容！'); return; }
+
+        if (!appData.quizQuestions) appData.quizQuestions = [];
+        appData.quizQuestions[idx] = q;
+        saveData();
+        renderQuizEditorList();
+        renderQuiz();
+        closeModal('modalQuizEditOne');
+        toast('✅ 题目已更新！');
+    }
+
+    function qeDelQuestion(idx) {
+        if (!confirm('确定删除第' + (idx + 1) + '题？')) return;
+        if (!appData.quizQuestions) return;
+        appData.quizQuestions.splice(idx, 1);
+        // Adjust answers after deletion
+        var heAns = appData.quizHeAnswers || {};
+        var sheAns = appData.quizSheAnswers || {};
+        var newHe = {}, newShe = {};
+        var qi = 0;
+        for (var k in heAns) {
+            var ki = parseInt(k);
+            if (ki < idx) { newHe[ki] = heAns[ki]; }
+            else if (ki > idx) { newHe[qi++] = heAns[ki]; }
+        }
+        qi = 0;
+        for (var k2 in sheAns) {
+            var ki2 = parseInt(k2);
+            if (ki2 < idx) { newShe[ki2] = sheAns[ki2]; }
+            else if (ki2 > idx) { newShe[qi++] = sheAns[ki2]; }
+        }
+        appData.quizHeAnswers = newHe;
+        appData.quizSheAnswers = newShe;
+        saveData();
+        renderQuizEditorList();
+        renderQuiz();
+        toast('✅ 题目已删除！');
+    }
+
+    function qeAddQuestion() {
+        var q = $('qeNewQ').value.trim();
+        if (!q) { toast('请填写题目内容！'); return; }
+
+        if (!appData.quizQuestions) appData.quizQuestions = [];
+        appData.quizQuestions.push(q);
+        saveData();
+        renderQuizEditorList();
+        renderQuiz();
+        $('qeNewQ').value = '';
+        toast('✅ 新题目已添加！');
+    }
+
+    function qeBatchAdd() {
+        var text = $('qeBatchInput').value.trim();
+        if (!text) { toast('请输入题目！'); return; }
+        var lines = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length > 0; });
+        if (lines.length === 0) { toast('没有有效题目！'); return; }
+        if (!appData.quizQuestions) appData.quizQuestions = [];
+        lines.forEach(function(l) { appData.quizQuestions.push(l); });
+        saveData();
+        renderQuizEditorList();
+        renderQuiz();
+        $('qeBatchInput').value = '';
+        toast('✅ 已添加 ' + lines.length + ' 道题！');
+    }
+
+    // ========== 弹窗 ==========
+    function openModal(id) {
+        $(id).classList.add('show');
+    }
+
+    function closeModal(id) {
+        $(id).classList.remove('show');
+    }
+
+    // 点击弹窗背景关闭
+    document.querySelectorAll('.modal').forEach(function(modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
     });
-}
-function selQuizOpt(qi,oi,el){
-    appData.quizAnswers[qi]=oi;saveData();
-    el.parentElement.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('sel'));
-    el.classList.add('sel');
-}
-function calcQuizResult(){
-    const total=quizQs.length,answered=Object.keys(appData.quizAnswers||{}).length;
-    if(answered<total){toast('请完成所有问题！('+answered+'/'+total+')');return;}
-    const correct=[0,1,0,2,0],score=Object.keys(appData.quizAnswers).filter(k=>appData.quizAnswers[k]===correct[k]).length;
-    const r=$('quizResult');r.style.display='block';
-    r.innerHTML='<h2>🎉 测试完成！</h2><p style="font-size:22px;margin:16px 0">你的得分：'+score+' / '+total+'</p><p style="font-size:17px">'+(score===total?'太棒了！你最了解TA了！💕':score>=total/2?'还不错哦！继续加油！💪':'需要多了解TA哦！❤️')+'</p>';
-}
 
-// ========== 弹窗 ==========
-function openModal(id){$(id).classList.add('show');}
-function closeModal(id){$(id).classList.remove('show');}
+    // ========== 音乐 ==========
+    function toggleMusic() {
+        var m = $('bgMusic');
+        var c = $('musicCtrl');
+        if (musicPlaying) {
+            m.pause();
+            c.textContent = '🎵';
+            musicPlaying = false;
+        } else {
+            m.play().catch(function() {});
+            c.textContent = '⏸️';
+            musicPlaying = true;
+        }
+    }
 
-// ========== 音乐 ==========
-let musicPlaying=false;
-function toggleMusic(){
-    const m=$('bgMusic'),c=document.querySelector('.music-ctrl');
-    if(musicPlaying){m.pause();c.textContent='🎵';musicPlaying=false;}
-    else{m.play().catch(()=>{alert('自动播放被阻止，请点击播放！')});c.textContent='⏸️';musicPlaying=true;}
-}
+    // ========== 启动 ==========
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 
-// ========== 启动 ==========
-document.addEventListener('DOMContentLoaded',init);
+})();
 </script>
 </body>
 </html>
