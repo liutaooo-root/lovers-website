@@ -597,7 +597,7 @@
                 if (!decoded.quizHeAnswers) decoded.quizHeAnswers = {};
                 if (!decoded.quizSheAnswers) decoded.quizSheAnswers = {};
                 if (!decoded.moments) decoded.moments = [];
-                saveData(decoded);
+                localStorage.setItem('loversData', JSON.stringify(decoded));
                 window.history.replaceState({}, '', window.location.pathname);
                 toast('🎉 已从分享链接恢复数据！');
                 return decoded;
