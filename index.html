@@ -113,6 +113,46 @@
         .quiz-compare-item .ans-he { background: rgba(102,126,234,0.3); padding: 4px 10px; border-radius: 8px; }
         .quiz-compare-item .ans-she { background: rgba(255,255,255,0.4); padding: 4px 10px; border-radius: 8px; }
 
+        /* 日常分享 */
+        .moments-feed { max-width: 600px; margin: 0 auto; }
+        .moment-post { background: white; border-radius: 20px; padding: 22px; margin-bottom: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .moment-post:hover { transform: translateY(-2px); }
+        .moment-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .moment-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; flex-shrink: 0; }
+        .moment-avatar.he { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .moment-avatar.she { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); }
+        .moment-name { font-weight: 600; font-size: 15px; color: #333; }
+        .moment-time { font-size: 12px; color: #999; margin-top: 2px; }
+        .moment-text { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 12px; white-space: pre-wrap; word-break: break-word; }
+        .moment-photos { display: grid; gap: 8px; margin-bottom: 12px; }
+        .moment-photos.cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+        .moment-photos.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .moment-photos.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .moment-photos.cols-4 { grid-template-columns: repeat(2, 1fr); }
+        .moment-photos.cols-more { grid-template-columns: repeat(3, 1fr); }
+        .moment-photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; cursor: pointer; transition: transform 0.2s; }
+        .moment-photos img:hover { transform: scale(1.03); }
+        .moment-actions { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid #f0f0f0; }
+        .moment-like-btn { background: none; border: none; font-size: 14px; cursor: pointer; padding: 4px 10px; border-radius: 16px; transition: all 0.3s; color: #888; }
+        .moment-like-btn:hover, .moment-like-btn.liked { color: #ff6b6b; background: #fff0f0; }
+        .moment-del-btn { background: none; border: none; font-size: 13px; cursor: pointer; color: #ccc; padding: 4px 10px; border-radius: 16px; transition: all 0.3s; }
+        .moment-del-btn:hover { color: #ff6b6b; background: #fff0f0; }
+        .moment-likes-detail { font-size: 12px; color: #ff9a9e; margin-top: 6px; }
+        .moment-publish-bar { background: white; border-radius: 20px; padding: 22px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .moment-person-tabs { display: flex; gap: 10px; margin-bottom: 14px; }
+        .moment-person-tab { padding: 8px 20px; border-radius: 18px; border: 2px solid #f0f0f0; background: white; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+        .moment-person-tab.active-he { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-color: #667eea; }
+        .moment-person-tab.active-she { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; border-color: #ff9a9e; }
+        .moment-textarea { width: 100%; min-height: 80px; border: 2px solid #f0f0f0; border-radius: 14px; padding: 14px; font-size: 15px; font-family: inherit; resize: vertical; outline: none; transition: border-color 0.3s; }
+        .moment-textarea:focus { border-color: #ff9a9e; }
+        .moment-photo-preview { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+        .moment-photo-preview .preview-item { position: relative; width: 70px; height: 70px; border-radius: 10px; overflow: hidden; }
+        .moment-photo-preview .preview-item img { width: 100%; height: 100%; object-fit: cover; }
+        .moment-photo-preview .preview-item .del-btn { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .moment-add-photo-btn { width: 70px; height: 70px; border: 2px dashed #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 28px; color: #ccc; transition: all 0.3s; background: #fafafa; }
+        .moment-add-photo-btn:hover { border-color: #ff9a9e; color: #ff9a9e; }
+        .moment-publish-row { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 14px; }
+
         /* 弹窗 */
         .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
         .modal.show { display: flex; }
@@ -172,6 +212,10 @@
             .countdown-display { gap: 16px; }
             .cd-item { min-width: 80px; padding: 18px; }
             .cd-item .num { font-size: 32px; }
+            .moments-feed { padding: 0 5px; }
+            .moment-publish-bar { padding: 16px; }
+            .moment-post { padding: 16px; }
+            .moment-photos.cols-more { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -186,6 +230,7 @@
         <div class="nav-item" data-page="countdown">⏱️ 倒计时</div>
         <div class="nav-item" data-page="wishlist">✅ 恋爱清单</div>
         <div class="nav-item" data-page="quiz">❓ 恋爱问答</div>
+        <div class="nav-item" data-page="moments">💬 日常分享</div>
     </div>
 </nav>
 
@@ -302,6 +347,26 @@
             <div id="quizResult" class="quiz-result" style="display:none"></div>
         </div>
     </div>
+    <div id="moments" class="page">
+        <div class="moment-publish-bar">
+            <div class="moment-person-tabs">
+                <div class="moment-person-tab active-he" id="momentTabHe" data-person="he">🧑 小弟</div>
+                <div class="moment-person-tab" id="momentTabShe" data-person="she">👩 小晗同学</div>
+            </div>
+            <textarea class="moment-textarea" id="momentText" placeholder="此刻在想什么... 💕"></textarea>
+            <div class="moment-photo-preview" id="momentPhotoPreview"></div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+                <label class="moment-add-photo-btn" id="momentAddPhoto">+
+                    <input type="file" id="momentPhotoInput" multiple accept="image/*" style="display:none">
+                </label>
+            </div>
+            <div class="moment-publish-row">
+                <button class="btn" id="btnPublishMoment">发布 💕</button>
+            </div>
+        </div>
+        <div class="moments-feed" id="momentsFeed"></div>
+    </div>
+
 </div>
 
 <!-- 弹窗：添加回忆 -->
@@ -499,7 +564,8 @@
         albumPhotos: [],
         quizHeAnswers: {},
         quizSheAnswers: {},
-        quizQuestions: DEFAULT_QUESTIONS.slice()
+        quizQuestions: DEFAULT_QUESTIONS.slice(),
+        moments: []
     };
 
     // ========== 工具 ==========
@@ -530,6 +596,7 @@
                 }
                 if (!decoded.quizHeAnswers) decoded.quizHeAnswers = {};
                 if (!decoded.quizSheAnswers) decoded.quizSheAnswers = {};
+                if (!decoded.moments) decoded.moments = [];
                 saveData(decoded);
                 window.history.replaceState({}, '', window.location.pathname);
                 toast('🎉 已从分享链接恢复数据！');
@@ -549,6 +616,7 @@
                 }
                 if (!parsed.quizHeAnswers) parsed.quizHeAnswers = {};
                 if (!parsed.quizSheAnswers) parsed.quizSheAnswers = {};
+                if (!parsed.moments) parsed.moments = [];
                 // Migrate old quizAnswers format
                 if (parsed.quizAnswers && !Object.keys(parsed.quizHeAnswers).length && !Object.keys(parsed.quizSheAnswers).length) {
                     // Old format had single quizAnswers with option indices - can't meaningfully migrate, just clear
@@ -577,6 +645,7 @@
         updateCountdown();
         renderWishlist();
         renderQuiz();
+        renderMoments();
         bindEvents();
 
         setInterval(updateCountdown, 1000);
@@ -639,6 +708,12 @@
         $('btnQeSaveEdit').addEventListener('click', qeSaveEdit);
         $('btnCancelQeEdit').addEventListener('click', function() { closeModal('modalQuizEditOne'); });
 
+        // 日常分享
+        $('momentTabHe').addEventListener('click', function() { switchMomentPerson('he'); });
+        $('momentTabShe').addEventListener('click', function() { switchMomentPerson('she'); });
+        $('btnPublishMoment').addEventListener('click', publishMoment);
+        $('momentPhotoInput').addEventListener('change', addMomentPhotos);
+
         // 音乐
         $('musicCtrl').addEventListener('click', toggleMusic);
     }
@@ -661,7 +736,7 @@
         for (var j = 0; j < navItems.length; j++) {
             navItems[j].classList.remove('active');
         }
-        var navMap = {home:0, timeline:1, album:2, letters:3, countdown:4, wishlist:5, quiz:6};
+        var navMap = {home:0, timeline:1, album:2, letters:3, countdown:4, wishlist:5, quiz:6, moments:7};
         var idx = navMap[id];
         if (idx !== undefined && navItems[idx]) {
             navItems[idx].classList.add('active');
@@ -1237,6 +1312,164 @@
         renderQuiz();
         $('qeBatchInput').value = '';
         toast('✅ 已添加 ' + lines.length + ' 道题！');
+    }
+
+    // ========== 日常分享（朋友圈/说说） ==========
+    var momentCurrentPerson = 'he';
+    var momentTempPhotos = [];
+
+    function switchMomentPerson(person) {
+        momentCurrentPerson = person;
+        var tabHe = $('momentTabHe');
+        var tabShe = $('momentTabShe');
+        tabHe.className = 'moment-person-tab' + (person === 'he' ? ' active-he' : '');
+        tabShe.className = 'moment-person-tab' + (person === 'she' ? ' active-she' : '');
+        $('momentText').placeholder = person === 'he' ? '小弟此刻在想什么... 💕' : '小晗同学此刻在想什么... 💕';
+    }
+
+    function addMomentPhotos(e) {
+        var files = e.target.files;
+        if (!files || files.length === 0) return;
+        Array.from(files).forEach(function(file) {
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                momentTempPhotos.push(ev.target.result);
+                renderMomentPreview();
+            };
+            reader.readAsDataURL(file);
+        });
+        e.target.value = '';
+    }
+
+    function renderMomentPreview() {
+        var container = $('momentPhotoPreview');
+        container.innerHTML = '';
+        momentTempPhotos.forEach(function(src, idx) {
+            var item = document.createElement('div');
+            item.className = 'preview-item';
+            item.innerHTML = '<img src="' + src + '"><button class="del-btn" data-idx="' + idx + '">×</button>';
+            item.querySelector('.del-btn').addEventListener('click', (function(i) {
+                return function() { momentTempPhotos.splice(i, 1); renderMomentPreview(); };
+            })(idx));
+            container.appendChild(item);
+        });
+    }
+
+    function publishMoment() {
+        var text = $('momentText').value.trim();
+        if (!text && momentTempPhotos.length === 0) { toast('写点什么或传张照片吧～'); return; }
+        if (!appData.moments) appData.moments = [];
+        appData.moments.unshift({
+            id: Date.now(),
+            person: momentCurrentPerson,
+            text: text,
+            photos: momentTempPhotos.slice(),
+            likes: [],
+            time: new Date().toISOString()
+        });
+        saveData();
+        $('momentText').value = '';
+        momentTempPhotos = [];
+        renderMomentPreview();
+        renderMoments();
+        toast('✅ 发布成功！');
+    }
+
+    function renderMoments() {
+        var feed = $('momentsFeed');
+        feed.innerHTML = '';
+        var moments = appData.moments || [];
+        if (moments.length === 0) {
+            feed.innerHTML = '<div style="text-align:center;color:#999;padding:40px;font-size:15px">还没有动态，发一条吧～ 💕</div>';
+            return;
+        }
+        moments.forEach(function(m) {
+            var post = document.createElement('div');
+            post.className = 'moment-post';
+            var avatarClass = m.person === 'he' ? 'he' : 'she';
+            var avatarEmoji = m.person === 'he' ? '🧑' : '👩';
+            var name = m.person === 'he' ? '小弟' : '小晗同学';
+            var timeStr = formatTime(m.time);
+
+            var photosHtml = '';
+            if (m.photos && m.photos.length > 0) {
+                var colClass = m.photos.length === 1 ? 'cols-1' : m.photos.length === 2 ? 'cols-2' : m.photos.length === 3 ? 'cols-3' : m.photos.length === 4 ? 'cols-4' : 'cols-more';
+                photosHtml = '<div class="moment-photos ' + colClass + '">';
+                m.photos.forEach(function(p) { photosHtml += '<img src="' + p + '" alt="照片">'; });
+                photosHtml += '</div>';
+            }
+
+            var isLiked = m.likes && m.likes.indexOf('me') >= 0;
+            var likeCount = m.likes ? m.likes.length : 0;
+            var likeText = likeCount > 0 ? '❤️ ' + likeCount : '🤍';
+            var likeClass = isLiked ? 'liked' : '';
+
+            post.innerHTML = '<div class="moment-header">' +
+                '<div class="moment-avatar ' + avatarClass + '">' + avatarEmoji + '</div>' +
+                '<div><div class="moment-name">' + name + '</div><div class="moment-time">' + timeStr + '</div></div>' +
+                '</div>' +
+                (m.text ? '<div class="moment-text">' + escapeHtml(m.text) + '</div>' : '') +
+                photosHtml +
+                '<div class="moment-actions">' +
+                '<button class="moment-like-btn ' + likeClass + '" data-id="' + m.id + '">' + likeText + '</button>' +
+                '<button class="moment-del-btn" data-id="' + m.id + '">删除</button>' +
+                '</div>';
+
+            feed.appendChild(post);
+        });
+
+        feed.querySelectorAll('.moment-like-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                toggleMomentLike(parseInt(this.getAttribute('data-id')));
+            });
+        });
+        feed.querySelectorAll('.moment-del-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (confirm('确定删除这条动态？')) delMoment(parseInt(this.getAttribute('data-id')));
+            });
+        });
+    }
+
+    function toggleMomentLike(id) {
+        var moments = appData.moments || [];
+        for (var i = 0; i < moments.length; i++) {
+            if (moments[i].id === id) {
+                if (!moments[i].likes) moments[i].likes = [];
+                var idx = moments[i].likes.indexOf('me');
+                if (idx >= 0) moments[i].likes.splice(idx, 1);
+                else moments[i].likes.push('me');
+                break;
+            }
+        }
+        saveData();
+        renderMoments();
+    }
+
+    function delMoment(id) {
+        appData.moments = (appData.moments || []).filter(function(m) { return m.id !== id; });
+        saveData();
+        renderMoments();
+    }
+
+    function formatTime(isoStr) {
+        var d = new Date(isoStr);
+        var now = new Date();
+        var diff = now - d;
+        if (diff < 60000) return '刚刚';
+        if (diff < 3600000) return Math.floor(diff / 60000) + '分钟前';
+        if (diff < 86400000) return Math.floor(diff / 3600000) + '小时前';
+        if (diff < 172800000) return '昨天';
+        var month = (d.getMonth() + 1);
+        var day = d.getDate();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        return month + '月' + day + '日 ' + (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+    }
+
+    function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
     }
 
     // ========== 弹窗 ==========
