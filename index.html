@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小弟 ❤️ 小晗同学</title>
     <style>
+        /* 密码锁屏 */
+        #authOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        #authOverlay.hidden { display: none; }
+        .auth-box { background: white; border-radius: 30px; padding: 50px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); text-align: center; max-width: 380px; width: 90%; }
+        .auth-box .lock-icon { font-size: 60px; margin-bottom: 15px; animation: float 3s ease-in-out infinite; }
+        .auth-box h2 { font-size: 24px; color: #ff9a9e; margin-bottom: 8px; }
+        .auth-box p { font-size: 14px; color: #999; margin-bottom: 25px; }
+        .auth-box input { width: 100%; padding: 14px 18px; border: 2px solid #eee; border-radius: 16px; font-size: 16px; text-align: center; outline: none; transition: border-color 0.3s; }
+        .auth-box input:focus { border-color: #ff9a9e; }
+        .auth-box button { width: 100%; padding: 14px; border: none; border-radius: 16px; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; font-size: 16px; cursor: pointer; margin-top: 15px; transition: all 0.3s; }
+        .auth-box button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,154,158,0.4); }
+        .auth-error { color: #ff6b6b; font-size: 13px; margin-top: 10px; min-height: 20px; }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); min-height: 100vh; overflow-x: hidden; }
         .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; padding: 12px 0; }
@@ -176,6 +189,17 @@
     </style>
 </head>
 <body>
+    <!-- 密码锁屏 -->
+    <div id="authOverlay">
+        <div class="auth-box">
+            <div class="lock-icon">🔒</div>
+            <h2>这是我们的秘密空间</h2>
+            <p>只有我们知道密码 💕</p>
+            <input type="password" id="authPwd" placeholder="输入密码" autocomplete="off">
+            <button id="authBtn">解锁 ❤️</button>
+            <div class="auth-error" id="authErr"></div>
+        </div>
+    </div>
 
 <nav class="navbar">
     <div class="nav-container">
@@ -1271,6 +1295,36 @@
             musicPlaying = true;
         }
     }
+
+    // ========== 密码验证 ==========
+    (function(){
+        var PWD_HASH = 'c21a2c97560e231f898a3242dd932f06019db84acbffaed78240e812ee29a6fd';
+        function sha256(str){
+            var encoder = new TextEncoder();
+            var data = encoder.encode(str);
+            return crypto.subtle.digest('SHA-256', data).then(function(buf){
+                return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+            });
+        }
+        function tryAuth(){
+            var pwd = document.getElementById('authPwd').value;
+            sha256(pwd).then(function(h){
+                if(h === PWD_HASH){
+                    document.getElementById('authOverlay').classList.add('hidden');
+                    localStorage.setItem('auth_ok','1');
+                } else {
+                    document.getElementById('authErr').textContent = '密码不对哦～再试试 ❤️';
+                    document.getElementById('authPwd').value = '';
+                    document.getElementById('authPwd').focus();
+                }
+            });
+        }
+        if(localStorage.getItem('auth_ok') === '1'){
+            document.getElementById('authOverlay').classList.add('hidden');
+        }
+        document.getElementById('authBtn').addEventListener('click', tryAuth);
+        document.getElementById('authPwd').addEventListener('keydown', function(e){ if(e.key==='Enter') tryAuth(); });
+    })();
 
     // ========== 启动 ==========
     if (document.readyState === 'loading') {
